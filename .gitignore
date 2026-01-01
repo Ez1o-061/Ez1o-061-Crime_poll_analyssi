@@ -1,0 +1,5 @@
+# .gitignore 內容
+__pycache__/
+*.pyc
+.vscode/
+.env
