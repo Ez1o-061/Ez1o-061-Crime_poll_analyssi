@@ -6,7 +6,6 @@ import os
 
 # 設定圖表風格
 sns.set_style("whitegrid")
-# 設定中文字型
 plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
 plt.rcParams['axes.unicode_minus'] = False 
 
@@ -21,13 +20,10 @@ if os.path.exists(filename):
         df = pd.read_csv(filename)
         print(f"成功讀取檔案: {filename}")
         print(f"資料筆數: {len(df)} 筆")
-        print("--- 前 5 筆資料預覽 ---")
-        print(df.head())
     except Exception as e:
         print(f"讀取檔案發生錯誤: {e}")
 else:
     print(f"找不到檔案: {filename}")
-    print("請確認檔案是否在同一個資料夾，且名稱正確。")
     # 這裡停止後續執行，因為沒有資料無法畫圖
     df = None
 
@@ -39,7 +35,6 @@ if df is not None:
         print("\n時間欄位處理完成。")
     except KeyError as e:
         print(f"\n錯誤: CSV 檔案中缺少必要的欄位 {e}")
-        print("請檢查 CSV 標題是否包含: year, month")
 
     # 2. 計算相關係數
     # 確保 CSV 裡有 'crime_rate' 和 'president_approval'
